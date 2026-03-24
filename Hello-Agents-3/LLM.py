@@ -21,9 +21,9 @@ class Config:
     DEFAULT_TIMEOUT = 10
 
 
-class Agent:
+class LLM:
     """
-    基础Agent类，包括初始化连接远程大模型，处理请求与输出大模型响应
+    基础LLM类，包括初始化连接远程大模型，处理请求与输出大模型响应
     """
     def __init__(self, api_key: Optional[str] = None, base_url: Optional[str] = None,
                  timeout: Optional[int] = None, model_id: Optional[str] = None):
@@ -94,9 +94,9 @@ class Agent:
             return None
 
 if __name__ == "__main__":
-    agent = Agent()
+    llm = LLM()
     messages = [{"role": "user", "content": "请你解释三体运动的求解难在哪"}]
-    response = agent.think(messages, verbose=True)
+    response = llm.think(messages, verbose=True)
     if response:
         logger.info("大模型已正确响应")
     else:
